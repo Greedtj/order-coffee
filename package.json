@@ -1,0 +1,23 @@
+{
+  "name": "order-coffee",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && wrangler dev --var ADMIN_PASSWORD:coffee1234 --var ADMIN_SESSION_SECRET:local-session-secret",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "db:local": "wrangler d1 migrations apply order-coffee --local",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@vitejs/plugin-react": "5.0.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "vite": "6.4.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.104.0"
+  }
+}
