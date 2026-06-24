@@ -4,10 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run build && wrangler dev --var ADMIN_PASSWORD:coffee1234 --var ADMIN_SESSION_SECRET:local-session-secret",
+    "dev": "npm run build && wrangler dev",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "db:local": "wrangler d1 migrations apply order-coffee --local",
     "test": "node --test"
   },
   "dependencies": {

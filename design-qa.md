@@ -41,7 +41,7 @@ No actionable P0, P1, or P2 mismatches remain. Live name and order text intentio
 - Opened and closed the menu-image modal.
 - Created and updated an order through the rendered form.
 - Logged into the admin view and confirmed the active project and order list.
-- Verified project creation, open/close API, R2 menu upload, D1 persistence, copy summary, CSV control, and order deletion route.
+- Verified project creation, open/close API, Google Sheet persistence, menu-link storage, copy summary, CSV control, and order deletion route.
 
 ## Follow-up polish
 

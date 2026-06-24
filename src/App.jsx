@@ -11,7 +11,6 @@ import {
   SignOut,
   Storefront,
   Trash,
-  UploadSimple,
   X,
 } from "@phosphor-icons/react";
 import { api, downloadCsv } from "./api.js";
@@ -243,27 +242,16 @@ function NewProject({ onCreated }) {
 }
 
 function ProjectManager({ projects, onChange }) {
-  const [uploading, setUploading] = useState("");
-
   async function setStatus(project, status) {
     await api(`/api/admin/projects/${project.id}`, { method: "PATCH", body: { status } });
     onChange();
   }
 
-  async function upload(project, files) {
-    setUploading(project.id);
-    try {
-      for (const file of files) {
-        await api(`/api/admin/projects/${project.id}/menu`, {
-          method: "POST",
-          rawBody: file,
-          headers: { "content-type": file.type, "x-file-name": encodeURIComponent(file.name) },
-        });
-      }
-      onChange();
-    } finally {
-      setUploading("");
-    }
+  async function addMenu(project) {
+    const imageUrl = prompt("วางลิงก์รูปเมนูที่เปิดดูได้แบบสาธารณะ");
+    if (!imageUrl) return;
+    await api(`/api/admin/projects/${project.id}/menu`, { method: "POST", body: { imageUrl } });
+    onChange();
   }
 
   return (
@@ -278,10 +266,9 @@ function ProjectManager({ projects, onChange }) {
               <p>{project.shop} · {formatDate(project.order_date)} · {project.order_count} ออเดอร์</p>
             </div>
             <div className="project-actions">
-              <label className="upload-button">
-                <UploadSimple size={19} /> {uploading === project.id ? "กำลังอัปโหลด…" : `รูปเมนู (${project.image_count})`}
-                <input type="file" accept="image/jpeg,image/png,image/webp" multiple disabled={uploading === project.id} onChange={(event) => upload(project, [...event.target.files])} />
-              </label>
+              <button className="upload-button" onClick={() => addMenu(project)}>
+                <ImageSquare size={19} /> รูปเมนู ({project.image_count})
+              </button>
               {project.status === "open" ? (
                 <button className="danger-button" onClick={() => setStatus(project, "closed")}>ปิดรับ</button>
               ) : (
