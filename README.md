@@ -2,6 +2,8 @@
 
 เว็บรวบรวมออเดอร์เครื่องดื่มสำหรับทีม ใช้งานบนมือถือและแท็บเล็ต มีหน้าผู้สั่ง หลังบ้าน โครงการ ลิงก์รูปเมนู และสรุปออเดอร์ ข้อมูลเก็บใน Google Sheet
 
+- [เว็บไซต์](https://order-coffee.greedtj.workers.dev)
+- [หลังบ้าน](https://order-coffee.greedtj.workers.dev/#admin)
 - [Google Sheet](https://docs.google.com/spreadsheets/d/1aPoFqLUaZ7DLx7kjpf49ZuGFMKpsnEQULEG0PYq-CKI/edit)
 - [Apps Script](https://script.google.com/d/1xXHNrInUUjhxy66s0sJyYLj_s5jH7ug5-dlmiIofunxAP74vWDgVSrfX/edit)
 
